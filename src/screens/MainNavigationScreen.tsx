@@ -1,6 +1,6 @@
 import React from 'react';
 import {createDrawerNavigator} from '@react-navigation/drawer';
-import ConvertScreen from './ConvertScreen';
+import ConvertScreen from './ConvertScreen/ConvertScreen';
 import AboutScreen from './AboutScreen';
 import LastItemsScreen from './LastItemsScreen';
 

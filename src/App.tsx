@@ -8,12 +8,15 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import MainNavigationScreen from './screens/MainNavigationScreen';
+import {NativeBaseProvider} from 'native-base';
 
 function App(): JSX.Element {
   return (
-    <NavigationContainer>
-      <MainNavigationScreen />
-    </NavigationContainer>
+    <NativeBaseProvider>
+      <NavigationContainer>
+        <MainNavigationScreen />
+      </NavigationContainer>
+    </NativeBaseProvider>
   );
 }
 
