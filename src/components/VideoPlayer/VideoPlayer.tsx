@@ -26,7 +26,7 @@ export const VideoPlayer: React.FC<Props> = ({
 
   useEffect(() => {
     console.log('new uri:', uri);
-    setPaused(uri ? false : true);
+    setPaused(true);
     setCurrentTime(0);
     setSeekPosition(0);
     setVideoInfo(undefined);
@@ -72,7 +72,7 @@ export const VideoPlayer: React.FC<Props> = ({
           //change slider no more than once per second
           setCurrentTime(Math.floor(progressInfo.currentTime / 1000) * 1000);
         }}
-        onBuffering={(e: any) => console.log('onBuffering:', e)}
+        // onBuffering={(e: any) => console.log('onBuffering:', e)}
         onPaused={(e: any) => console.log('onPaused:', e)}
         onStopped={(e: any) => console.log('onStopped:', e)}
         onLoad={(info: VideoInfo) => {

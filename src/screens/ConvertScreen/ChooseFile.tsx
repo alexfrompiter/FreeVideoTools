@@ -4,7 +4,6 @@ import DocumentPicker from 'react-native-document-picker';
 import InputDialog from '../../components/InputDialog';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {Platform} from 'react-native';
-import { DocumentPickerOptions } from 'react-native-document-picker';
 
 export type Props = {
   uri: string;

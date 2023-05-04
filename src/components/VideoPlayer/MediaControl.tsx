@@ -9,7 +9,6 @@ import {
   Icon,
   Select,
   VStack,
-  CheckIcon,
   ChevronDownIcon,
 } from 'native-base';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -30,9 +29,7 @@ export const MediaControl: React.FC<Props> = ({
   position,
   pausedTuple,
   onChangePosition,
-  audioTrack,
   setAudioTrack,
-  textTrack,
   setTextTrack,
 }) => {
   const [paused, setPaused] = pausedTuple;
@@ -63,7 +60,8 @@ export const MediaControl: React.FC<Props> = ({
   return (
     <VStack>
       <HStack alignItems="center">
-        <IconButton size={6}
+        <IconButton
+          size={6}
           _icon={{
             as: Ionicons,
             name: paused ? 'play-outline' : 'pause-outline',
@@ -98,13 +96,13 @@ export const MediaControl: React.FC<Props> = ({
         </Slider>
         <Text>{formatTime(duration)}</Text>
       </HStack>
-      <HStack alignItems="center" >
+      <HStack alignItems="center">
         {audioTracks.length > 1 && (
           <>
             <Icon as={Ionicons} name="musical-notes" size={4} />
             <Select
               flex={1}
-              dropdownCloseIcon={<ChevronDownIcon size={3}/>}
+              dropdownCloseIcon={<ChevronDownIcon size={3} />}
               defaultValue={'' + audioTracks[1].id}
               onValueChange={value => setAudioTrack(Number(value))}>
               {audioTracks.map(track => (
@@ -119,7 +117,7 @@ export const MediaControl: React.FC<Props> = ({
         )}
         {textTracks.length > 0 && (
           <>
-            <Icon as={Ionicons} name="text" size={4} ml={1}/>
+            <Icon as={Ionicons} name="text" size={4} ml={1} />
             <Select
               flex={1}
               dropdownCloseIcon={<ChevronDownIcon size={3} />}
