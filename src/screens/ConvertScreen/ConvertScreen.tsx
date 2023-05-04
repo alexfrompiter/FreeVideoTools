@@ -62,7 +62,6 @@ const ConvertScreen: React.FC<Props> = () => {
           </ScrollView>
         </Box>
       )}
-
     </VStack>
   );
 };

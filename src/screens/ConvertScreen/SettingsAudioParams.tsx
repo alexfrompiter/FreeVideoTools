@@ -41,7 +41,7 @@ const SettingsAudioParams: React.FC<Props> = ({audioSettings, isSingle}) => {
         <ChangedText value={params.codec} changedValue={codec} />
       </React.Fragment>
     );
-  }, [isSingle, params.title, params.codec, codec]);
+  }, [isSingle, params.title, params.language, params.codec, codec]);
 
   return (
     <ExpandSection title={renderAudioTitle} isOpened={false}>

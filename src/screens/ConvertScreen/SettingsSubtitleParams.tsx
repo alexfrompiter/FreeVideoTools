@@ -42,7 +42,7 @@ const SettingsSubtitleParams: React.FC<Props> = ({
         <ChangedText value={params.codec} changedValue={codec} />
       </React.Fragment>
     );
-  }, [isSingle, params.title, params.codec, codec]);
+  }, [isSingle, params.title, params.language, params.codec, codec]);
 
   return (
     <ExpandSection title={renderSubtitleTitle} isOpened={false}>
