@@ -1,6 +1,6 @@
 import React, {useCallback, useEffect, useMemo, useState} from 'react';
 import {HStack, Select, Text, VStack} from 'native-base';
-import {VideoTrackSettings} from '../../types/MediaSettings';
+import VideoTrackSettings from '../../types/VideoTrackSettings';
 import ExpandSection from '../../components/ExpandSection';
 import {customStr, getLabel, selectedFirstList} from '../../utils/CommonUtils';
 import SetSizeDialog from './SetSizeDialog';
@@ -18,10 +18,12 @@ const SettingsVideoParams: React.FC<Props> = ({videoSettings}) => {
   const [codec, setCodec] = useState(changedParams.codec);
 
   const codecList = useMemo(() => {
-    return selectedFirstList(
+    const list = selectedFirstList(
       params.codec,
       Object.keys(VideoTrackSettings.codecs),
     );
+    console.log('video codecs:', list);
+    return list;
   }, [params.codec]);
 
   useEffect(() => {

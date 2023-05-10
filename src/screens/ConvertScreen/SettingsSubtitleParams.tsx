@@ -1,6 +1,6 @@
 import React, {useCallback, useEffect, useMemo, useState} from 'react';
 import {HStack, Select, Text, VStack} from 'native-base';
-import {SubtitleSettings} from '../../types/MediaSettings';
+import SubtitleSettings from '../../types/SubtitleSettings';
 import {getLabel, selectedFirstList} from '../../utils/CommonUtils';
 import ChangedText from './ChangedText';
 import ExpandSection from '../../components/ExpandSection';

@@ -1,27 +1,27 @@
 import React, {useEffect, useMemo, useState} from 'react';
 import {HStack, Select, Text} from 'native-base';
-import {BaseInfoSettings} from '../../types/MediaSettings';
 import {getLabel, selectedFirstList} from '../../utils/CommonUtils';
+import {ContainerSettings} from '../../types/ContainerSettings';
 
 export type Props = {
-  baseSettings: BaseInfoSettings;
+  containerSettings: ContainerSettings;
 };
 
-const SettingsBaseParams: React.FC<Props> = ({baseSettings}) => {
+const SettingsContainer: React.FC<Props> = ({containerSettings}) => {
   const [extension, setExtension] = useState<string>(
-    baseSettings.changedParams.extension,
+    containerSettings.changedParams.extension,
   );
 
   useEffect(() => {
-    baseSettings.changedParams.extension = extension;
-  }, [extension, baseSettings.changedParams]);
+    containerSettings.changedParams.extension = extension;
+  }, [extension, containerSettings.changedParams]);
 
   const extensionList = useMemo(() => {
     return selectedFirstList(
-      baseSettings.params.extension,
-      Object.keys(BaseInfoSettings.extensions),
+      containerSettings.params.extension,
+      Object.keys(ContainerSettings.extensions),
     );
-  }, [baseSettings.params.extension]);
+  }, [containerSettings.params.extension]);
 
   return (
     <HStack alignItems="center">
@@ -34,7 +34,7 @@ const SettingsBaseParams: React.FC<Props> = ({baseSettings}) => {
           return (
             <Select.Item
               key={key}
-              label={getLabel(key, BaseInfoSettings.extensions)}
+              label={getLabel(key, ContainerSettings.extensions)}
               value={key}
             />
           );
@@ -44,4 +44,4 @@ const SettingsBaseParams: React.FC<Props> = ({baseSettings}) => {
   );
 };
 
-export default SettingsBaseParams;
+export default SettingsContainer;

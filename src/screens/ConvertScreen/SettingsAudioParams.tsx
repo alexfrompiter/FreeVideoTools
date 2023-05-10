@@ -1,6 +1,6 @@
 import React, {useCallback, useEffect, useMemo, useState} from 'react';
 import {HStack, Select, Text, VStack} from 'native-base';
-import {AudioTrackSettings} from '../../types/MediaSettings';
+import AudioTrackSettings from '../../types/AudioTrackSettings';
 import {getLabel, selectedFirstList} from '../../utils/CommonUtils';
 import ChangedText from './ChangedText';
 import ExpandSection from '../../components/ExpandSection';

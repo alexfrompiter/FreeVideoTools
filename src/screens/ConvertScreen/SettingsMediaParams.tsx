@@ -1,11 +1,10 @@
 import React from 'react';
 import {Box, Text, VStack} from 'native-base';
 import {MediaSettings} from '../../types/MediaSettings';
-import SettingsBaseParams from './SettingsBaseParams';
-
 import SettingsVideoParams from './SettingsVideoParams';
 import SettingsSubtitleParams from './SettingsSubtitleParams';
 import SettingsAudioParams from './SettingsAudioParams';
+import SettingsContainer from './SettingsContainer';
 
 export type Props = {
   isConvert: boolean;
@@ -16,12 +15,15 @@ const SettingsMediaParams: React.FC<Props> = ({isConvert, mediaSettings}) => {
   return (
     <VStack space="2">
       {isConvert && (
-        <SettingsBaseParams baseSettings={mediaSettings.baseSettings} />
+        <SettingsContainer
+          containerSettings={mediaSettings.containerSettings}
+        />
       )}
       {isConvert &&
         mediaSettings.videoTracksSettings.map(videoSettings => {
           return (
             <SettingsVideoParams
+              key={videoSettings.params.index}
               videoSettings={videoSettings}
               isSingle={mediaSettings.videoTracksSettings.length === 1}
             />
@@ -35,6 +37,7 @@ const SettingsMediaParams: React.FC<Props> = ({isConvert, mediaSettings}) => {
       {mediaSettings.audioTracksSettings.map(audioSettings => {
         return (
           <SettingsAudioParams
+            key={audioSettings.params.index}
             audioSettings={audioSettings}
             isSingle={mediaSettings.audioTracksSettings.length === 1}
           />
@@ -48,6 +51,7 @@ const SettingsMediaParams: React.FC<Props> = ({isConvert, mediaSettings}) => {
       {mediaSettings.subtitlesSettings.map(subtitleSettings => {
         return (
           <SettingsSubtitleParams
+            key={subtitleSettings.params.index}
             subtitleSettings={subtitleSettings}
             isSingle={mediaSettings.subtitlesSettings.length === 1}
           />
